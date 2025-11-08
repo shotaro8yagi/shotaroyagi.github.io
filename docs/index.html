@@ -13,6 +13,24 @@
   <link rel="icon" href="images/favicon.ico" />
   <link rel="stylesheet" href="style.css" />
 </head>
+<script>
+  const header = document.querySelector('.site-header');
+
+  function updateHeaderHeight() {
+    const h = header ? header.getBoundingClientRect().height : 0;
+    document.documentElement.style.setProperty('--header-h', `${h}px`);
+  }
+
+  // Run now, on resize, and whenever the header’s box changes
+  updateHeaderHeight();
+  window.addEventListener('load', updateHeaderHeight);
+  window.addEventListener('resize', updateHeaderHeight);
+
+  // React to font/load/layout changes in the header
+  if (window.ResizeObserver && header) {
+    new ResizeObserver(updateHeaderHeight).observe(header);
+  }
+</script>
 <body>
   <header class="site-header">
     <div class="container">
