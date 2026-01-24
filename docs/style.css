@@ -38,15 +38,13 @@ p{ margin:0 0 12px; color:var(--text); }
 
 .intro{ margin-top:16px; font-size:1.05rem; }
 
-.grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
-  gap:16px; margin-top:12px;
+.card {
+  width: 260px;               /* tile width (adjust) */
+  border: 1px solid color-mix(in oklab, var(--text), transparent 90%);
+  border-radius: var(--radius); overflow:hidden; transition:transform .08s ease, border-color .2s;
+  background: var(--card);
 }
-.card{
-  background:var(--card); border:1px solid color-mix(in oklab, var(--text), transparent 90%);
-  border-radius:var(--radius); overflow:hidden; transition:transform .08s ease, border-color .2s;
-}
+
 .card:hover{ transform:translateY(-2px); border-color:color-mix(in oklab, var(--text), transparent 80%); }
 .card img{ display:block; width:100%; height:160px; object-fit:cover; background:#0002; }
 .card-body{ padding:14px; }
@@ -179,4 +177,46 @@ section[id] {
   opacity: 1;
   transform: translateY(-2px); /* small hover lift */
   filter: drop-shadow(0 0 6px var(--accent));
+}
+
+.projects-strip {
+  position: relative;
+  margin-top: 12px;
+}
+
+/* Horizontal row of tiles */
+.projects-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbars (optional) */
+.projects-row::-webkit-scrollbar {
+  display: none;
+}
+.projects-row {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Tile-like cards */
+.card {
+  flex: 0 0 260px;           /* fixed-ish tile width */
+  border: 1px solid color-mix(in oklab, var(--text), transparent 90%);
+  border-radius: var(--radius);
+  background: var(--card);
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Square-ish image at top */
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;       /* square */
+  object-fit: cover;
+  display: block;
+  background: #0002;
 }
