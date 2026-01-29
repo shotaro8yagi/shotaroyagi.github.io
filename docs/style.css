@@ -30,6 +30,32 @@ p{ margin:0 0 12px; color:var(--text); }
 
 .headshot{ width:150px; border-radius:50%; object-fit:cover; }
 
+.quote {
+  position: relative;
+  padding: 2rem 2.5rem;
+  margin: 2rem 0;
+  border-left: 6px solid #7bc4b2;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #2f4f4f;
+}
+
+.quote::before {
+  content: "“";
+  position: absolute;
+  top: 0rem;
+  left: 1rem;
+  font-size: 3rem;
+  color: #7bc4b2;
+  font-family: serif;
+}
+
+.quote footer {
+  margin-top: 1rem;
+  text-align: right;
+  font-size: 0.95rem;
+  color: #4a6f6a;
+}
 
 .nav{ display:flex; gap:16px; align-items:center; }
 .nav a{ color:var(--text); text-decoration:none; opacity:.9; }
