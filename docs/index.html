@@ -64,7 +64,7 @@
     <section class="split">
         <aside class="split-label"><img src="images/profile_yagi.png" alt="Portrait of Shotaro Yagi" class="headshot" /></aside>
         <div class="split-body">
-            <p>Hello! I’m a Practice Designer working as a project manager with <a href="https://copilot.jp/" target="_blank">COPILOT Inc.</a>, Tokyo and a PhD Candidate at <a href="https://www.iii.u-tokyo.ac.jp/" target="_blank">the University of Tokyo</a>. I give lectures, talks, and work as project manager.</p>
+            <p>Hello! I’m a Practice Designer working as a project manager with <a href="https://copilot.jp/" class="external-link">COPILOT Inc.</a>, Tokyo and a PhD Candidate at <a href="https://www.iii.u-tokyo.ac.jp/" target="_blank">the University of Tokyo</a>. I give lectures, talks, and work as project manager.</p>
             <p>I’m currently based between Glasgow and Tokyo.</p>
         </div>
     </section>
@@ -317,7 +317,7 @@
             <a class="card-link" href="https://ptp.voyage/" target="_blank">
               <img src="images/project-project-theory-probe-1.jpeg" alt="Exploration and inquiry in Project Theory Probe" loading="lazy" />
               <div class="card-body">
-                <h3>Probing Project Practice (Project Theory Probe)</h3>
+                <h3>Launching an Experimental Journal (Project Theory Probe)</h3>
                 <p>
                   Planned and launched an open journal to explore the nature of project by connecting practitioners and researchers through experimentation and reflection.
                 </p>
@@ -363,5 +363,17 @@
     // tiny enhancement: set current year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+  (function () {
+    const isDesktop = window.matchMedia("(min-width: 769px)").matches;
+
+    if (isDesktop) {
+      document.querySelectorAll("a.external-link").forEach(link => {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      });
+    }
+  })();
+</script>
 </body>
 </html>
